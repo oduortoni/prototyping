@@ -23,12 +23,20 @@
             display: flex;
             flex-direction: column;
             width: 35em;
+            border: 1px solid rgba(30, 30, 30, 0.4);
+            border-radius: 5px;
+            background: rgba(30, 30, 30, 0.1);
+            margin: 3rem auto;
+        }
+        form p {
+            width: 95%;
+            margin: 1rem auto;
         }
         input {
             display: block;
-            width: 95%;
+            width: 90%;
             margin: 1rem auto;
-            padding: 1rem;
+            padding: .5rem;
         }
         .submit {
             background: cadetblue;
@@ -67,6 +75,13 @@
 <body>
     <div class="left">
         <form method="POST" action="/stat">
+            <p>
+                Try these two as input. Only proto will work to get the response as a pdf file. Wait for thenresponse for 15 seconds
+                <ul>
+                    <li>anything</li>
+                    <li>proto</li>
+                </ul>
+            </p>
             <input name="content" placeholder="Enter Text Here" required />
             <input type="submit" class="submit" value="Generate Stats"/>
         </form>
