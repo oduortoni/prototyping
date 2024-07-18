@@ -2,7 +2,7 @@
 
 ## description
 
-A simple program that was created to accompany a dev.to article that is in the works. All the working is represented within that dev.t article. 
+A simple program that was created to accompany a dev.to article that is in the works
 
 ## usage
 
@@ -15,7 +15,7 @@ There are two golang projects. The first one is within the folder named oldskool
 
 You can run the projects by going into their respective folders.
 
-**oldskool** 
+### oldskool
 
 While in the prototyping folder
 
@@ -24,13 +24,13 @@ cd oldskool
 go run .
 ```
 
-Go to your web browser and type in the url 
+Go to your web browser and type
 
 ```plaintext
 http://localhost:3500/
 ```
 
-**newskool**
+### newskool
 
 While in the prototyping folder
 
@@ -39,7 +39,7 @@ cd newskool
 go run .
 ```
 
-Go to your web browser and type in the url 
+Go to your web browser and type
 
 ```plaintext
 http://localhost:4500/
