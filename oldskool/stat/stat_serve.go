@@ -33,6 +33,6 @@ func StatServe(response http.ResponseWriter, r *http.Request) {
 }
 
 func sleepForOneMinute() {
-	duration := 1 * time.Minute
+	duration := 15 * time.Second
 	time.Sleep(duration)
 }
