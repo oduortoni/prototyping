@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Generate stats</title>
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
             min-height: 100vw;
             padding: 3rem;
+            display: flex;
+        }
+        .left {
+            flex: 2;
+            min-height: 100%;
+        }
+        .right {
+            flex: 1;
+            min-height: 100%;
         }
         form {
             display: flex;
@@ -26,14 +35,67 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .joke {
+            width: 35em;
+            padding: 1rem;
+            border: 1px solid rgba(30, 30, 30, 0.6);
+            border-radius: 5px;
+            color:rgba(30, 30, 30, 0.6);
+            text-shadow: 1px 1px crimson;
+            font-size: large;
+            text-align: center;
+            margin: 2rem auto;
+        }
+        button {
+            cursor: pointer;
+            padding: .7rem;
+            border-radius: 5px;
+            width: 10rem;
+            font-weight: 300;
+            background: darkseagreen;
+            float: right;
+            margin-right: 2rem;
+        }
+        .info {
+            padding: 2rem;
+            margin: 2rem auto;
+            width: fit-content;
+            font-weight: 100;
+        }
     </style>
 </head>
 <body>
-    <div>
+    <div class="left">
         <form method="POST" action="/stat">
             <input name="content" placeholder="Enter Text Here" required />
             <input type="submit" class="submit" value="Generate Stats"/>
         </form>
     </div>
+    <div class="right">
+        <div class="info">
+            We are aware that you are a busy person, but as you wait for your response, you can enjoy a few jokes...
+        </div>
+        <div id="jokes"></div>
+        <button onclick="joke()">Joke</button>
+    </div>
+    <script>
+        function joke(e) {
+            fetch("http://localhost:4500/jokes")
+            .then(response => response.json())
+            .then(joke => {
+                const jokeElement = document.createElement("div");
+                jokeElement.innerHTML = joke.setup + "<br/> " + joke.punchline;
+                jokeElement.classList.add("joke");
+                document.querySelector("#jokes").appendChild(jokeElement);
+            })
+            .catch(error => {
+                jokeElement = document.createElement("div");
+                jokeElement.innerHTML = "An error occured while fetching jokes";
+                jokeElement.classList.add("joke");
+                document.querySelector("#jokes").appendChild(jokeElement);
+            });
+
+        }
+    </script>
 </body>
 </html>

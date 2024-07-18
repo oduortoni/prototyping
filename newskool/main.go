@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 
+	"github.com/oduortoni/prototyping/jokes"
 	"github.com/oduortoni/prototyping/stat"
 )
 
@@ -11,5 +12,6 @@ func main() {
 
 	http.HandleFunc("/", stat.StatIndex)
 	http.HandleFunc("/stat", stat.StatServe)
+	http.HandleFunc("/jokes", jokes.Jokes)
 	http.ListenAndServe(":4500", nil)
 }

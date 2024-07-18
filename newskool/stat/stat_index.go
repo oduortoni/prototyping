@@ -5,7 +5,7 @@ import (
 	"text/template"
 )
 
-func StatIndex(w http.ResponseWriter, r *http.Request) {
+func StatIndex(response http.ResponseWriter, request *http.Request) {
 	tmpl, _ := template.ParseFiles("ui/index.html")
-	tmpl.Execute(w, nil)
+	tmpl.Execute(response, nil)
 }

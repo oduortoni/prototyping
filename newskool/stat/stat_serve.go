@@ -19,7 +19,7 @@ func StatServe(response http.ResponseWriter, r *http.Request) {
 
 	// simulate the dalay by one minute
 	sleepForOneMinute()
-	
+
 	// Open the PDF file
 	pdfFile, _ := os.Open("ui/proto.pdf")
 	defer pdfFile.Close()
@@ -33,6 +33,6 @@ func StatServe(response http.ResponseWriter, r *http.Request) {
 }
 
 func sleepForOneMinute() {
-	duration := 1 * time.Minute
+	duration := 15 * time.Second
 	time.Sleep(duration)
 }
